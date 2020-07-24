@@ -1,7 +1,7 @@
-# kioscav
+# KIOS CAV
 ## Table of contents
 * [Arduino setup](#arduino-setup)
-
+* [VESC package testing] (#vesc-package-testing)
 
 
 ## Arduino setup
@@ -48,5 +48,14 @@ Running the ROS packages of sensors like the imu and the laser scanner
 
 ### racecar/racecar/config/vesc.yaml
 Configuring the VESC 6 Plus specifications like maximum and minimum speed the limits of servo steering etc.
+
+After copying all those files to the already downloaded ROS package (https://github.com/RacecarJ/racecar/tree/VESC6) then ti run this project:
+```
+$ cd catkin_ws
+$ catkin_make
+$ source devel/setup.bash
+$ roslaunch racecar teleop.launch
+```
+Then by using Logitech F710 Wireess Gamepad you can teleoperate KIOS CAV.
 
 
