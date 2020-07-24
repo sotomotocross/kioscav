@@ -33,8 +33,20 @@ $ rostopic pub
 
 ## Racecar package testing
 This is the basic pckage of using the KIOS CAV. Inside the racecar folder of this repository there are files:
-* racecar/racecar/launch/teleop.launch
-* racecar/racecar/launch/includes/racecar-v2-teleop.launch.xml
-* racecar/racecar/launch/includes/racecar-v2/vesc.launch.xml
-* racecar/racecar/launch/includes/common/sensors.launch.xml
-* racecar/racecar/config/vesc.yaml
+
+### racecar/racecar/launch/teleop.launch
+Running the racecar-v2-teleop.launch.launch.xml and the rosserial for the ROS-Arduino communication (driving servo steering and VL6180 proximity sensors)
+
+### racecar/racecar/launch/includes/racecar-v2-teleop.launch.xml
+Running the drivers about VESC 6 Plus, ZED Stereo caera, RPLIDAR A3, Sparkfun 9DoF IMU, ublox C94-M8P GPS
+
+### racecar/racecar/launch/includes/racecar-v2/vesc.launch.xml
+Running vesc.yaml (explained below) and all the vesc drivers about odometry and teleoperation
+
+### racecar/racecar/launch/includes/common/sensors.launch.xml
+Running the ROS packages of sensors like the imu and the laser scanner
+
+### racecar/racecar/config/vesc.yaml
+Configuring the VESC 6 Plus specifications like maximum and minimum speed the limits of servo steering etc.
+
+
