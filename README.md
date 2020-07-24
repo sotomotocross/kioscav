@@ -18,8 +18,23 @@ $ rosrun rosserial_arduino serial_node.py _port:=/dev/ttyACM*
 ```
 after the rosrun command has succesfuly been executed the user can check the measurements of the VL6180 sensors by executing:
 ```
-$ rostopic echo /rang*_data
+$ rostopic echo /range*_data
 ```
 
-## asdsadasd
+## VESC package testing
+Here we test the communication of VESC 6 Plus and the motor of KIOS CAV. Initially the user has to replace (already using the ROS package https://github.com/RacecarJ/vesc/tree/VESC6) by copying vesc_driver_node.launch and vesc_driver_nodelet.launch in the vesc folder of this repository. Then to run this project:
+```
+$ cd catkin_ws
+$ catkin_make
+$ source devel/setup.bash
+$ roslaunch vesc vesc_driver vesc_driver_node.launch
+$ rostopic pub 
+```
 
+## Racecar package testing
+This is the basic pckage of using the KIOS CAV. Inside the racecar folder of this repository there are files:
+* racecar/racecar/launch/teleop.launch
+* racecar/racecar/launch/includes/racecar-v2-teleop.launch.xml
+* racecar/racecar/launch/includes/racecar-v2/vesc.launch.xml
+* racecar/racecar/launch/includes/common/sensors.launch.xml
+* racecar/racecar/config/vesc.yaml
