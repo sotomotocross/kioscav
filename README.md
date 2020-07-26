@@ -1,7 +1,8 @@
 # KIOS CAV
 ## Table of contents
 * [Arduino setup](#arduino-setup)
-* [VESC package testing] (#vesc-package-testing)
+* [VESC package testing](#vesc-package-testing)
+* [Racecar package testing](#racecar-package-testing)
 
 
 ## Arduino setup
