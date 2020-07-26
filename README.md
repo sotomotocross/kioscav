@@ -3,6 +3,7 @@
 * [Arduino setup](#arduino-setup)
 * [VESC package testing](#vesc-package-testing)
 * [Racecar package testing](#racecar-package-testing)
+* [Racecar Controller package testing](#racecar-controller-package-testing)
 
 
 ## Arduino setup
@@ -58,5 +59,20 @@ $ source devel/setup.bash
 $ roslaunch racecar teleop.launch
 ```
 Then by using Logitech F710 Wireess Gamepad you can teleoperate KIOS CAV.
+
+
+## Racecar Controllers package testing
+This is the basic package of letting KIOS CAV executing autonomous navigation inside an unknown space. Dynamic potential fields are used based on the Laser scanner measurements and give the ability of autonomous navigation, avoiding obstacles.
+
+After copying all those files to the already downloaded ROS package (https://github.com/RacecarJ/racecar-controllers) then ti run this project:
+```
+$ cd catkin_ws
+$ catkin_make
+$ source devel/setup.bash
+$ roslaunch racecar-controllers
+$
+```
+After this the car starts instantly to navigate inside its space. If the user pushes the trigger button of Logitech F710 Wireless Gamepad then KIOS CAV turns into teleoperation mode. Whenever the user leaves the dead-man button autonomous navigation starts right away.
+
 
 
