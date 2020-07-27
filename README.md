@@ -8,6 +8,14 @@
 
 
 ## UDEV rules setup
+The 40-sensors-actuators.rules file is placed in the path: /etc/udev/rules.d/
+It creates unique names for certain USB devices connected to the USB hub through symbolic links. It also gives read and write permissions to these devices. These devices are:
+* VESC device -> ttyACM0 -> ttyVESC
+* IMU device -> ttyACM1 -> ttyIMU
+* Arduino device -> ttyACM2 -> ttyArduino
+* ublox C94-M8P GPS -> ttyACM3 -> ttyGPS
+* Logitech F710 Wireless Gamepad -> js0 (it only gives read and write permissions)
+
 
 ## Arduino setup
 This is about servo_and_ir_ros folder of this github repo.
