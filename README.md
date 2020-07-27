@@ -75,6 +75,10 @@ Then by using Logitech F710 Wireess Gamepad you can teleoperate KIOS CAV.
 ## Racecar Controllers package testing
 This is the basic package of letting KIOS CAV executing autonomous navigation inside an unknown space. Dynamic potential fields are used based on the Laser scanner measurements and give the ability of autonomous navigation, avoiding obstacles.
 
+### racecar-controllers/racecar_potential_field_controller/config/default.yaml
+Configuring the potential field controller specifications like the force_scale, the force offset the speed_p_gain etc.
+
+
 After copying all those files to the already downloaded ROS package (https://github.com/RacecarJ/racecar-controllers) then ti run this project:
 ```
 $ cd catkin_ws
