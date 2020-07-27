@@ -69,10 +69,7 @@ After copying all those files to the already downloaded ROS package (https://git
 $ cd catkin_ws
 $ catkin_make
 $ source devel/setup.bash
-$ roslaunch racecar-controllers
+$ roslaunch racecar_potential_field_controller node.launch
 $
 ```
 After this the car starts instantly to navigate inside its space. If the user pushes the trigger button of Logitech F710 Wireless Gamepad then KIOS CAV turns into teleoperation mode. Whenever the user leaves the dead-man button autonomous navigation starts right away.
-
-
-
