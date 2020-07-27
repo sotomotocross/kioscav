@@ -1,10 +1,13 @@
 # KIOS CAV
 ## Table of contents
+* [UDEV rules setup](#udev-rules-setup)
 * [Arduino setup](#arduino-setup)
 * [VESC package testing](#vesc-package-testing)
 * [Racecar package testing](#racecar-package-testing)
 * [Racecar Controller package testing](#racecar-controller-package-testing)
 
+
+## UDEV rules setup
 
 ## Arduino setup
 This is about servo_and_ir_ros folder of this github repo.
