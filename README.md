@@ -40,7 +40,7 @@ Here we test the communication of VESC 6 Plus and the motor of KIOS CAV. Initial
 $ cd catkin_ws
 $ catkin_make
 $ source devel/setup.bash
-$ roslaunch vesc vesc_driver vesc_driver_node.launch
+$ roslaunch vesc_driver vesc_driver_node.launch
 $ rostopic pub 
 ```
 
@@ -85,5 +85,6 @@ $ cd catkin_ws
 $ catkin_make
 $ source devel/setup.bash
 $ roslaunch racecar_potential_field_controller node.launch
+$ rostopic pub /commands/motor/speed std_msgs/Float64 "data: 0.0"
 ```
 After this the car starts instantly to navigate inside its space. If the user pushes the trigger button of Logitech F710 Wireless Gamepad then KIOS CAV turns into teleoperation mode. Whenever the user leaves the dead-man button autonomous navigation starts right away.
