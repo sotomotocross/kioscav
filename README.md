@@ -41,7 +41,7 @@ $ cd catkin_ws
 $ catkin_make
 $ source devel/setup.bash
 $ roslaunch vesc_driver vesc_driver_node.launch
-$ rostopic pub 
+$ rostopic pub /commands/motor/speed std_msgs/Float64 "data: 0.0"
 ```
 
 ## Racecar package testing
@@ -70,6 +70,21 @@ $ source devel/setup.bash
 $ roslaunch racecar teleop.launch
 ```
 Then by using Logitech F710 Wireess Gamepad you can teleoperate KIOS CAV.
+Since the package is launched the user can teleoperate KIOS CAV using the Logitech F710 Wireless Gamepad. For the teleoperation to happen the dead-man (LB) button button has to be pushed all the times. When this happens then the car responds to the motion of the gamepad's joysticks.
+When this ROS package is executed all the sensors are launched. ZED stereo camera will have to be launched separately after the teleop.launch regarding the overload of the memory bus. This happens using the following command on another terminal:
+	
+```
+$ roslaunch racecar teleop.launch
+```
+During testing it has been observed that when all the sensors are launched and acquiring information the responsiveness of the car to the joystick's motions  is limited. If only the teleoperation package file is launched then the teleoperation range of KIOS CAV has been tested up to 20-25 meters from the user. If the zed file is additionally launched then the teleoperation range of the car limits to 8-10 meters distance from the user.
+
+It also reported that even if the teleoperation file launches the ZED stereo camera and not the RPLIDAR A3 then again the joystick's range is limited to 8-10 meters from the user. Hence, it is concluded that the information provided from ZED stereo camera is heavy. The user can configure the quality of the information acquired from the camera to be lighter for the Jetson TX2 to process. This can happen tweaking the files presented below:
+* catkin\_ws/src/zed-ros-wrapper/zed\_wrapper/cfg/Zed.cfg
+* catkin\_ws/src/zed-ros-wrapper/zed\_wrapper/params/common.yaml
+* catkin\_ws/src/zed-ros-wrapper/zed\_wrapper/params/zed.yaml
+
+It's indicated that KIOS CAV's motor is capped on the 6.000 rpm, while it's full potential reaches 100.000 rpm. After the 10.000 rpm the user of the CAV must be really experienced because the car gets really aggressive. An inexperienced user might end up to big damages of the car.
+WARNING: Sometimes and if the vehicles is aggressively teleoperated squeaking noise coming from the motor might appear. In that case the user should leave immediately the dead-man button and pus it again. In that case the noise should stop. If the sound persists kill the ROS launch files of the teleoperation package running. If this is not possible then unplug the LiPo battery from the KIOS CAV's motor. This noise indicates that the motor is stressed.
 
 
 ## Racecar Controllers package testing
@@ -85,6 +100,5 @@ $ cd catkin_ws
 $ catkin_make
 $ source devel/setup.bash
 $ roslaunch racecar_potential_field_controller node.launch
-$ rostopic pub /commands/motor/speed std_msgs/Float64 "data: 0.0"
 ```
 After this the car starts instantly to navigate inside its space. If the user pushes the trigger button of Logitech F710 Wireless Gamepad then KIOS CAV turns into teleoperation mode. Whenever the user leaves the dead-man button autonomous navigation starts right away.
