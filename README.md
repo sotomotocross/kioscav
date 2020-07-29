@@ -74,7 +74,7 @@ Since the package is launched the user can teleoperate KIOS CAV using the Logite
 When this ROS package is executed all the sensors are launched. ZED stereo camera will have to be launched separately after the teleop.launch regarding the overload of the memory bus. This happens using the following command on another terminal:
 	
 ```
-$ roslaunch racecar teleop.launch
+$ roslaunch zed_wrapper zed_no_tf.launch
 ```
 During testing it has been observed that when all the sensors are launched and acquiring information the responsiveness of the car to the joystick's motions  is limited. If only the teleoperation package file is launched then the teleoperation range of KIOS CAV has been tested up to 20-25 meters from the user. If the zed file is additionally launched then the teleoperation range of the car limits to 8-10 meters distance from the user.
 
